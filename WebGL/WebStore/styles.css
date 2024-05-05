@@ -200,3 +200,7 @@ nav {
     border-radius: 5px;
     flex: 1; /* Ô điền sẽ chiếm phần còn lại của hàng */
 }
+
+#ttBtn {
+    margin-right: 20px;
+}

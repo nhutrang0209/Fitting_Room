@@ -6,13 +6,38 @@
     <title>Thời trang</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<?php
+    $phone = isset($_COOKIE['username']) ? $_COOKIE['username'] : ""; // Check if 'username' cookie is set
+    $login = isset($_COOKIE['login']) ? $_COOKIE['login'] : ""; // Check if 'login' cookie is set
+    $id = isset($_COOKIE['id']) ? $_COOKIE['id'] : "";
+    $height = isset($_COOKIE['height']) ? $_COOKIE['height'] : ""; 
+    $weight = isset($_COOKIE['weight']) ? $_COOKIE['weight'] : ""; 
+    $v1 = isset($_COOKIE['v1']) ? $_COOKIE['v1'] : ""; 
+    $v2 = isset($_COOKIE['v2']) ? $_COOKIE['v2'] : ""; 
+    $v3 = isset($_COOKIE['v3']) ? $_COOKIE['v3'] : ""; 
+?>
+
 <body>
     <header>
         <h1>LOGO</h1>
-        <div class="user-actions">
-            <button id="loginBtn">Đăng nhập</button>
-            <button id="registerBtn">Đăng ký</button>
-        </div>
+        <?php
+        if ($login == true) {
+            echo "
+                <div class='user-actions'>
+                    <button id='ttBtn'>Nhập thông tin</button>
+                    <h3>User: $phone</h3>  
+                </div>
+            ";
+        } else {
+            echo "
+                <div class='user-actions'>
+                    <button id='loginBtn'>Đăng nhập</button>
+                    <button id='registerBtn'>Đăng ký</button>
+                </div>
+            ";
+        }
+        ?>
+
     </header>
 
     <div id="overlay"></div>
@@ -31,6 +56,37 @@
                     <input type="password" id="loginPassword" name="loginPassword" required>
                 </div>
                 <input type="submit" value="Đăng nhập">
+            </form>
+        </div>
+    </div>
+
+    <div id="ttModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTtModal()">&times;</span>
+            <h2>Nhập thông tin</h2>
+            <form action="tt.php" method="POST">
+                <input type="hidden" id="id" name="id" value="<?php echo $id ?>">
+                <div class="form-group">
+                    <label for="loginPhone">Chiều cao</label>
+                    <input type="number" id="height" name="height" value="<?php echo $height ?>">
+                </div>
+                <div class="form-group">
+                    <label for="loginPhone">Cân nặng</label>
+                    <input type="number" id="weight" name="weight" value="<?php echo $weight ?>">
+                </div>
+                <div class="form-group">
+                    <label for="loginPhone">Vòng 1</label>
+                    <input type="number" id="v1" name="v1" value="<?php echo $v1 ?>">
+                </div>
+                <div class="form-group">
+                    <label for="loginPhone">Vòng 2</label>
+                    <input type="number" id="v2" name="v2" value="<?php echo $v2 ?>">
+                </div>
+                <div class="form-group">
+                    <label for="loginPhone">Vòng 3</label>
+                    <input type="number" id="v3" name="v3" value="<?php echo $v3 ?>">
+                </div>
+                <input type="submit" value="Thêm/Cập nhật thông tin">
             </form>
         </div>
     </div>
