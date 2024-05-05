@@ -1,0 +1,23 @@
+﻿{
+  "shirts" : [
+    "jacket.fbx",
+    "Shirt_pants.fbx"
+  ],
+  
+  "dresses": [
+    "dress.fbx"
+  ],
+  
+  "clothArgs": [
+    {
+      "nameFbx": "Dress.prefab",
+      "nameCloth": "dress",
+      "size": "S"
+    },
+    {
+      "nameFbx": "Coat.prefab",
+      "nameCloth": "Coat",
+      "size": "M"
+    }
+  ]
+}
