@@ -26,7 +26,7 @@
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         $id = $row['id'];
-        $query = "SELECT * FROM info WHERE id = '$id'";
+        $query = "SELECT * FROM info WHERE id_info = '$id'";
         $result = $conn->query($query);
         $height = "";
         $weight = "";
