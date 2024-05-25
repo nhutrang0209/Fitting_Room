@@ -44,6 +44,11 @@ namespace Fitting_Room
                 {
                     GameManager.Instance.Player.ChangeHeight(floatValue);
                 }
+
+                if (fieldName == "Weight")
+                {
+                    GameManager.Instance.Player.ChangeWeight(floatValue);
+                }
             }
         }
 

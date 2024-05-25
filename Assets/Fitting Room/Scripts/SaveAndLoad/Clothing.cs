@@ -2,18 +2,13 @@
 
 namespace Fitting_Room
 {
-    public enum Category
+    public class Clothing : MonoBehaviour
     {
-        Dress,
-        Shirt,
-        Pants
-    }
-    
-    [CreateAssetMenu(menuName = "Fitting Room/Clothing", fileName = "Cloth")]
-    public class Clothing : ScriptableObject
-    {
-        [SerializeField] private string clothName;
-        [SerializeField] private Category category;
-        
+        public ClothingData ClothingData { get; set; }
+
+        public void ReturnToInventory()
+        {
+            
+        }
     }
 }
