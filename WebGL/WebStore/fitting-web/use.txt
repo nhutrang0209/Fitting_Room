@@ -1,0 +1,15 @@
+PHP version >= 8.2
+Tải composer - https://getcomposer.org/download/
+
+cd vào thư mục web
+composer install
+
+Sửa tên file .env.example thành .env
+
+php artisan key:generate
+
+php artisan migrate
+
+Vào phpadmin trong bảng users của db store thêm các cột height, weight, v1, v2, v3 cho phép null và dạng int
+
+php artisan serve --host=127.0.0.1 --port=8080
