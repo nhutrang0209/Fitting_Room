@@ -1,0 +1,13 @@
+PHP version >= 8.2
+Tải composer - https://getcomposer.org/download/
+
+cd vào thư mục web
+composer install
+
+Sửa tên file .env.example thành .env
+
+php artisan key:generate
+
+php artisan migrate
+
+php artisan serve --host=127.0.0.1 --port=8080
