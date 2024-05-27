@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4dce5f467934351866e01958c6affe8, type: 3}
-  m_Name: Cloth 1
+  m_Name: Dress
   m_EditorClassIdentifier: 
-  clothName: 
-  category: 0
+  id: 1
+  clothName: Dress
+  clothCategory: 1
   clothSize: 0
+  itemSprite: {fileID: 21300000, guid: 6c0b4ff67b7f7554dbbe1a319c4faa8e, type: 3}
   modelFbx: {fileID: 0}
