@@ -21,10 +21,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/filter/{sex}/{shirt}', 'HomeController@filter_full')->name('filter_full');
+Route::get('/home/{sex}/{type}', 'HomeController@filter')->name('filter');
+Route::get('/detail/{id}', 'HomeController@detail')->name('detail');
+
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
 Route::put('/profile/info', 'ProfileController@updateinfo')->name('profile.updateinfo');
+
+
 
 Route::get('/about', function () {
     return view('about');
