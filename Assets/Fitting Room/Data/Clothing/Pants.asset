@@ -16,5 +16,5 @@ MonoBehaviour:
   clothName: Pants
   clothCategory: 2
   clothSize: 0
-  itemSprite: {fileID: 21300000, guid: 6c0b4ff67b7f7554dbbe1a319c4faa8e, type: 3}
+  itemSprite: {fileID: 21300000, guid: 80ec10a2de11ff1499a2bfc950534e0b, type: 3}
   modelFbx: {fileID: 0}

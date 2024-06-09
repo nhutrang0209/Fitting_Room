@@ -9,7 +9,11 @@ namespace Fitting_Room
         [Header("Clothing Manager")] [SerializeField]
         private ClothingManager clothingManager;
 
-        [Header("Model")] [SerializeField] private Transform modelTransform;
+        [Header("Animation")]
+        [SerializeField] private AnimationController animator;
+        
+        [Header("Model")] 
+        [SerializeField] private Transform modelTransform;
 
         [SerializeField] private float defaultHeight;
         [SerializeField] private float defaultWeight;
@@ -53,6 +57,11 @@ namespace Fitting_Room
         public void TakeOff(Clothing clothing)
         {
             clothingManager.TakeOff(clothing);
+        }
+
+        public void SetWalking(bool state)
+        {
+            animator.SetWalking(state);
         }
     }
 }

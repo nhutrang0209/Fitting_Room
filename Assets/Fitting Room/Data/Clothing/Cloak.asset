@@ -16,5 +16,5 @@ MonoBehaviour:
   clothName: Cloak
   clothCategory: 1
   clothSize: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: b078477d5a7989441ad1e6df63dfb0b9, type: 3}
   modelFbx: {fileID: 0}
