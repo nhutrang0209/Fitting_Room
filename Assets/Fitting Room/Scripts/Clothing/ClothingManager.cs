@@ -12,7 +12,7 @@ namespace Fitting_Room
 
         public List<Clothing> ClothingInventory => clothingInventory;
         
-        private void Start()
+        private void Awake()
         {
             CurClothList = new List<Clothing>();
         }

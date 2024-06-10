@@ -1,0 +1,19 @@
+{
+  "importInfos": [
+    {
+      "objName": "Dress_S",
+      "isEnable": true,
+      "category": "Dress"
+    },
+    {
+      "objName": "Jacket_S",
+      "isEnable": false,
+      "category": "Shirt"
+    },
+    {
+      "objName": "CS_02_Short",
+      "isEnable": false,
+      "category": "Pants"
+    }
+  ]
+}

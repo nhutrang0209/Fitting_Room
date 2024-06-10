@@ -5,76 +5,38 @@ namespace Fitting_Room
 {
     public class ClothesLoader : MonoBehaviour
     {
-        [SerializeField] private Transform playerTransform;
-        public Clothes clothesLoaded;
-        [SerializeField] private Cloth cloth;
+        [SerializeField] private string jsonPath;
+
+        private Player Player => Player.Instance;
         
         private void Start()
         {
-            ReadJsonFile("Clothes/Clothes.json");
-            LoadGameObject();
+            LoadData();
         }
 
-        private void ReadJsonFile(string path)
+        private void LoadData()
         {
-            // Read Json file
-            string myLoadedItem = LoadJsonAsResource(path);
-            
-            // Use Json Utility to map with Item
-            clothesLoaded = JsonUtility.FromJson<Clothes>(myLoadedItem);
-        }
+            var data = JsonFileHandler.ReadFromJson<ClothingImportData>(jsonPath);
 
-        private static string LoadJsonAsResource(string path)
-        {
-            string jsonFilePath = path.Replace(".json", "");
-            // Text asset = Text obj
-            TextAsset loadedJsonFile = Resources.Load<TextAsset>(jsonFilePath);
-
-            return loadedJsonFile.text;
-        }
-
-        private void LoadGameObject()
-        {
-            foreach (var clothArg in clothesLoaded.clothArgs)
+            foreach (var clothInfo in data.importInfos)
             {
+                var clothObjName = clothInfo.objName;
+                var clothing = FindByObjName(clothObjName);
                 
-                string newName = clothArg.nameFbx.Replace(".prefab", "");
-                Debug.Log(newName);
-                
-                GameObject fbxObj = Resources.Load<GameObject>("Models/" + newName);
-
-                if (fbxObj)
-                {
-                    var newGo = Instantiate(fbxObj, playerTransform, true);
-                    return;
-                }
+                if (clothInfo.isEnable)
+                    Player.PutOn(clothing);
             }
         }
 
-        private void ChangeConstraints(Cloth clothComponent, float maxDistance)
+        private Clothing FindByObjName(string objName)
         {
-            var newConstraints = clothComponent.coefficients;
-
-            for(int i = 0; i< newConstraints.Length; ++i)
+            foreach (var clothing in Player.ClothingInventory)
             {
-                newConstraints[i].maxDistance = maxDistance;
+                if (clothing.gameObject.name == objName)
+                    return clothing;
             }
 
-            clothComponent.coefficients = newConstraints;
+            return null;
         }
-    }
-
-    [Serializable]
-    public class Clothes
-    {
-        public ClothArgs[] clothArgs;
-    }
-
-    [Serializable]
-    public class ClothArgs
-    {
-        public string nameFbx;
-        public string nameCloth;
-        public string size;
     }
 }

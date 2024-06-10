@@ -55,16 +55,6 @@ namespace Fitting_Room
             {
                 bodyPart.localScale = _size;
             }
-            
-            // foreach (var collider in sphereColliders)
-            // {
-            //     collider.radius -= deltaValue;
-            // }
-            //
-            // foreach (var collider in capsuleColliders)
-            // {
-            //     collider.radius -= deltaValue;
-            // }
         }
     }
 
