@@ -108,9 +108,9 @@
                     <div class="card" style="margin-top: 30px">
                         <div class="card-header">
                             <h5 class="mb-0">
-                                <a href="http://127.0.0.1:5500/UnityBuild/index.html">
+                                <button class="btn font-weight-bold text-center" style="font-size: 1em; width: 100%;">
                                     THỬ ĐỒ
-                                </a>
+                                </button>
                             </h5>
                         </div>
                     </div>
