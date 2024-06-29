@@ -70,15 +70,13 @@ class ProfileController extends Controller
             'v3' => $request->input('v3'),
         ];
 
-        // Assuming you have a function to read the JSON file (replace with your actual implementation)
         function readJsonData($filename) {
             $jsonData = file_get_contents($filename);
-            return json_decode($jsonData, true); // Decode as associative array
+            return json_decode($jsonData, true); 
         }
 
-        // Assuming you have a function to write the JSON data back to the file (replace with your actual implementation)
         function writeJsonData($filename, $data) {
-            $jsonData = json_encode($data, JSON_PRETTY_PRINT); // Encode with formatting for readability
+            $jsonData = json_encode($data, JSON_PRETTY_PRINT); 
             file_put_contents($filename, $jsonData);
         }
 
@@ -96,27 +94,27 @@ class ProfileController extends Controller
         ];
 
         $userFound = false;
-        foreach ($existingData as $key => $existingUser) {
-            if ($existingUser['id'] === $userData['id']) {
-                $userFound = true;
-                $existingData[$key] = $userData; 
-                break; 
-            }
-        }
-
+        // foreach ($existingData as $key => $existingUser) {
+        //     if ($existingUser['id'] === $userData['id']) {
+        //         $userFound = true;
+        //         $existingData[$key] = $userData; 
+        //         break; 
+        //     }
+        // }
         if (!$userFound) {
             $existingData[] = $userData;
         }
+        $newData = [];
+        $newData[] = $userData;
 
-        writeJsonData($jsonPath, $existingData);
-
-        if ($userFound) {
-            echo "User data updated successfully.";
-        } else {
-            echo "New user data added.";
-        }
-
-
+        writeJsonData($jsonPath, $newData);
+        // writeJsonData($jsonPath, []);
+        // writeJsonData($jsonPath, $existingData);
+        // if ($userFound) {
+        //     echo "User data updated successfully.";
+        // } else {
+        //     echo "New user data added.";
+        // }
         return redirect()->route('profile')->withSuccess("Số đo đã được cập nhật");
     }
 }
