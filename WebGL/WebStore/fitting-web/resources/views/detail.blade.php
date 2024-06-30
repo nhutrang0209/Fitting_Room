@@ -108,7 +108,7 @@
                     <div class="card" style="margin-top: 30px">
                         <div class="card-header">
                             <h5 class="mb-0">
-                                <button class="btn font-weight-bold text-center" style="font-size: 1em; width: 100%;">
+                                <button onclick="window.location.href='http://127.0.0.1:5500/index.html'" class="btn font-weight-bold text-center" style="font-size: 1em; width: 100%;">
                                     THỬ ĐỒ
                                 </button>
                             </h5>

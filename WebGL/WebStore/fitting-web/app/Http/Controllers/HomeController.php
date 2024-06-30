@@ -61,8 +61,8 @@ class HomeController extends Controller
         if (!$userFound) {
             $existingData[] = $userData;
         }
-        $newData = [];
-        $newData[] = $userData;
+
+        $newData = $userData;
 
         writeJsonData($jsonPath, $newData);
         // writeJsonData($jsonPath, []);

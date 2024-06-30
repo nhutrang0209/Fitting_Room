@@ -104,8 +104,8 @@ class ProfileController extends Controller
         if (!$userFound) {
             $existingData[] = $userData;
         }
-        $newData = [];
-        $newData[] = $userData;
+        // $newData = [];
+        $newData = $userData;
 
         writeJsonData($jsonPath, $newData);
         // writeJsonData($jsonPath, []);

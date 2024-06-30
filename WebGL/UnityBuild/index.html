@@ -6,6 +6,34 @@
     <title>Unity WebGL Player | Fitting room</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      #home-button {
+        position: absolute;
+        bottom: 20px; /* Add margin from bottom */
+        left: 20px;  /* Add margin from left */
+        padding: 15px 25px;
+        background-color: #7bb6f2; /* Green */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
+  
+      #home-button:hover {
+        background-color: #45a049;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+    </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -23,6 +51,9 @@
         <div id="unity-build-title">Fitting room</div>
       </div>
     </div>
+
+    <a id="home-button" href="http://127.0.0.1:8080/home">Home</a>
+
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");

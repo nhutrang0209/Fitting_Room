@@ -35,7 +35,7 @@ namespace Fitting_Room
 
         private static string LoadTxtFromJson(string path)
         {
-            string jsonFilePath = Path.Combine(Application.dataPath, path);
+            string jsonFilePath = Path.GetFullPath(Path.Combine(Application.dataPath, path));
 
             if (!File.Exists(jsonFilePath))
             {
