@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 
 namespace Fitting_Room
@@ -21,6 +22,8 @@ namespace Fitting_Room
         
         [Header("Measurements")]
         [SerializeField] private Measurements measurements;
+
+        [SerializeField] private string editorPath;
         [SerializeField] private string measureJsonPath;
 
         [Header("Round")] 
@@ -47,8 +50,20 @@ namespace Fitting_Room
 
         private void ChangeBody()
         {
-            measurements = JsonFileHandler.ReadFromJson<Measurements>(measureJsonPath);
+            var path = measureJsonPath;
             
+#if UNITY_EDITOR
+            path = editorPath;
+            measurements = JsonFileHandler.ReadFromJson<Measurements>(path);
+            return;
+#endif
+            JsonFileHandler.ReadFromWebJson<Measurements>(path, OnJsonLoaded);
+        }
+
+        private void OnJsonLoaded(Measurements data)
+        {
+            measurements = data;
+            Debug.Log(measurements);
             ChangeHeight(Height);
             ChangeV1();
             ChangeV2();

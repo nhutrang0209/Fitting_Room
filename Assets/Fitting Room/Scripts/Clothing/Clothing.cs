@@ -8,7 +8,7 @@ namespace Fitting_Room
         [SerializeField] private ClothingData clothingData;
 
         public int ID => clothingData.ID;
-        public ClothCategory Category => clothingData.Category;
+        public ClothCategory Category { get; set; }
 
         public event Action OnPutOn;
 
